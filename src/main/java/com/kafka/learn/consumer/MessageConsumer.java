@@ -12,7 +12,7 @@ public class MessageConsumer {
     @Autowired
     private KafkaTemplate<String, Transferencia> kafkaTemplate;
 
-    @KafkaListener(topics = "transference-received", groupId = "transference-group-id")
+    //@KafkaListener(topics = "transference-received", groupId = "transference-group-id")
     public void listen(final Transferencia messageConsumer) {
         messageConsumer.setAutorizado(Boolean.TRUE);
         kafkaTemplate.send("transference-authorized", messageConsumer);
